@@ -1,12 +1,23 @@
-<h1>Here are all your current tasks:</h1>
-<% if @tasks %>
-  <% @tasks.each do |task| %>
-     <li>
-        <%= task.done ? "[X]" : "[  ]" %>
-        <%= task.name %>
-        <%= link_to "edit", edit_task_path(task) %>
-      </li>
-  <% end %>
-<% else %>
-  <p>You have no tasks go out and enjoy the day</p>
-<% end %>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-6 offset-3">
+      <h1>To Do List</h1>
+      <% if !@tasks.empty? %>
+        <% @tasks.each do |task| %>
+           <li>
+              <%= task.done ? "[x]" : "[_]" %>
+              <%= link_to task.name, task_path(task) %>
+            </li>
+        <% end %>
+      <% else %>
+        <br>
+        <p>You have no task, go out and <strong>enjoy the day</strong> :)</p>
+      <% end %>
+      <br>
+      <%= link_to "add a new task", new_task_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+
+
