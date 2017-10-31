@@ -1,0 +1,6 @@
+<%= form_for(@task) do |f| %>
+  <%= f.label "Task name:" %>
+  <%= f.text_field :name %>
+  <%= f.label "Is this task done?" %>
+  <%= f.check_box :done %>
+<% end %>
